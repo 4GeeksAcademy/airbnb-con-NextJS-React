@@ -1,0 +1,175 @@
+@import "tailwindcss";
+@import "react-day-picker/style.css";
+
+:root {
+  --ink: #222222;
+  --muted: #6a6a6a;
+  --line: #dddddd;
+  --surface: #f5f5f5;
+  --accent: #087f6f;
+  color-scheme: light;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: #ffffff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button,
+a,
+input,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.photo-art {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(160deg, #d9e7e4 0%, #a9c5bd 45%, #6d9187 100%);
+}
+
+.photo-art::before,
+.photo-art::after {
+  position: absolute;
+  content: "";
+  z-index: -1;
+}
+
+.photo-art::before {
+  width: 42%;
+  height: 58%;
+  right: 12%;
+  bottom: 12%;
+  border: 7px solid rgb(255 255 255 / 65%);
+  border-bottom-width: 13px;
+  border-radius: 45% 45% 3px 3px;
+  background: linear-gradient(180deg, #f8e9c9 0 42%, #8ba9a0 43% 100%);
+  box-shadow: -72px 18px 0 -18px rgb(75 90 75 / 32%), 18px 22px 0 -9px rgb(75 90 75 / 25%);
+  transform: perspective(120px) rotateY(-7deg);
+}
+
+.photo-art::after {
+  width: 120%;
+  height: 35%;
+  left: -10%;
+  bottom: -16%;
+  border-radius: 50% 50% 0 0;
+  background: rgb(31 56 48 / 28%);
+  filter: blur(2px);
+}
+
+.photo-art[data-scene="white"],
+.photo-art[data-scene="sunlit"],
+.photo-art[data-scene="arched"] {
+  background: linear-gradient(155deg, #f5e8d1, #d9c5a4 52%, #8b7962);
+}
+
+.photo-art[data-scene="blue"],
+.photo-art[data-scene="river"],
+.photo-art[data-scene="lisbon"],
+.photo-art[data-scene="valencia"],
+.photo-art[data-scene="marina"] {
+  background: linear-gradient(155deg, #9dc3d2, #6d9fb0 48%, #426f78);
+}
+
+.photo-art[data-scene="tile"],
+.photo-art[data-scene="garden"],
+.photo-art[data-scene="olive"] {
+  background: linear-gradient(155deg, #bfceb0, #748a67 46%, #485b48);
+}
+
+.photo-art[data-scene="terracotta"] {
+  background: linear-gradient(155deg, #dfb78e, #bb795c 48%, #785344);
+}
+
+.photo-art[data-scene="pine"],
+.photo-art[data-scene="mountain"] {
+  background: linear-gradient(155deg, #c2d3bb, #688571 48%, #344e46);
+}
+
+.photo-art[data-scene="stone"] {
+  background: linear-gradient(155deg, #dfd7c6, #a99a7f 48%, #685c4d);
+}
+
+.photo-art[data-scene="photo-window"]::before {
+  width: 54%;
+  height: 70%;
+  right: 18%;
+  bottom: 8%;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #c8dfe0 0 55%, #5b867d 56%);
+}
+
+.photo-caption {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  color: #fff;
+  background: rgb(34 34 34 / 58%);
+  font-size: 12px;
+}
+
+.soft-shadow {
+  box-shadow: 0 10px 32px rgb(34 34 34 / 9%);
+}
+
+.booking-day-picker {
+  --rdp-accent-color: #087f6f;
+  --rdp-accent-background-color: #e6f4f0;
+  --rdp-day_button-border-radius: 999px;
+  --rdp-day_button-height: 38px;
+  --rdp-day_button-width: 38px;
+  width: 100%;
+}
+
+.booking-day-picker .rdp-selected .rdp-day_button {
+  color: #fff;
+  background: #087f6f;
+}
+
+.booking-day-picker .booking-unavailable-night .rdp-day_button {
+  color: #777;
+  text-decoration: line-through;
+  background: #f0f0f0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .enter-rise {
+    animation: enter-rise 320ms ease-out both;
+  }
+
+  @keyframes enter-rise {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
